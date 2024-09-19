@@ -1,0 +1,17 @@
+## peek into zipped archive, pipe to grep to search for data of interest - this shows path inside the zipped archive that you'll need for extraction 
+# example - keyword is EUR
+
+PATH1=/path/to/file.zip
+
+
+unzip -l $PATH1 
+unzip -l $PATH1 | grep EUR -
+
+# once you know full name, path to file you need:
+
+filename=myfile.txt # or /subfolder/path/to/myfile.txt
+
+unzip -p $PATH1 filename 
+
+# pipe this to other bash commands etc
+unzip -p $PATH1 filename | head -n 1 -
